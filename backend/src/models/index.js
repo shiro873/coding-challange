@@ -27,11 +27,11 @@ db.Op = Op;
 db.sequelize = sequelize;
 
 db.user = require('./user')(sequelize, Sequelize, DataTypes);
-db.selectorType = require('./selectorType')(sequelize, Sequelize, DataTypes);
-db.selectorSubTypes = require('./selectorSubType')(sequelize, Sequelize, DataTypes);
+db.sectorType = require('./sectorType')(sequelize, Sequelize, DataTypes);
+db.sectorSubTypes = require('./sectorSubType')(sequelize, Sequelize, DataTypes);
 
-db.selectorSubTypes.belongsTo(db.selectorSubTypes);
-db.selectorType.hasMany(db.selectorSubTypes);
+db.sectorSubTypes.belongsTo(db.sectorSubTypes);
+db.sectorType.hasMany(db.sectorSubTypes);
 
 
 module.exports = db;

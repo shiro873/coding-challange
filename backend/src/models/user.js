@@ -14,6 +14,9 @@ module.exports = (sequelize, Sequelize, DataTypes) => {
             },
             categories: {
                 type: DataTypes.JSON
+            },
+            agreedToTerms: {
+                type: DataTypes.BOOLEAN
             }
         },
         {

@@ -11,8 +11,6 @@ var swaggerUi = require('swagger-ui-express'),
 
 const app = express();
 
-app.use(cors({ origin: "*" }));
-
 // app.use(cors());
 
 // parse requests of content-type - application/json
@@ -29,7 +27,8 @@ const db = require("./src/models");
 db.sequelize
   .sync()
   .then(() => {
-    // initial(); // Just use it in development, at the first time execution!. Delete it in production
+    // initial(); 
+    console.log('database status ----> synced');
   })
   .catch((err) => {
     console.log("error", err);
@@ -37,7 +36,7 @@ db.sequelize
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "hello, hyppy" });
+  res.json({ message: "hello, world" });
 });
 
 // api doc

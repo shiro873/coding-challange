@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize, DataTypes) => {
-    const SelectorType = sequelize.define(
-        "selectorType",
+    const SectorSubType = sequelize.define(
+        "sectorSubType",
         {
             id: {
                 type: DataTypes.UUID,
@@ -22,5 +22,5 @@ module.exports = (sequelize, Sequelize, DataTypes) => {
         }
     );
 
-    return SelectorType;
+    return SectorSubType;
 }

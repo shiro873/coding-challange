@@ -1,6 +1,6 @@
 import './App.css';
 import Multiselect from 'multiselect-react-dropdown';
-import { useState } from "react";
+import React, { useState } from "react";
 
 function App() {
   const [service, setService] = useState([

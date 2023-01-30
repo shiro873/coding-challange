@@ -1,0 +1,31 @@
+version: '3.1'
+services:
+  database:
+    container_name: database
+    build: ./db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3306:3306
+  api:
+    container_name: api
+    build: ./backend
+    ports:
+      - "8001:8001"
+    depends_on:
+      - database
+    environment:
+      - DATABASE_HOST=database
+    command: "npm run start"
+  admin:
+    container_name: frontend
+    build: ./frontend
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    ports:
+      - "80:80"

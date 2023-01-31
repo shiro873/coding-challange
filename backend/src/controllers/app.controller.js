@@ -4,8 +4,8 @@ require('dotenv').config();
 const { pushData, getData, deleteData } = require('../services/db.service');
 
 const User = db.user;
-const SectorType = db.selectorType;
-const SectorSubType = db.selectorSubTypes;
+const SectorType = db.sectorType;
+const SectorSubType = db.sectorSubTypes;
 
 exports.insertSelectorData = async (req, res) => {
     try{
@@ -14,12 +14,13 @@ exports.insertSelectorData = async (req, res) => {
             let sectorType = await SectorType.create({
                 name: sector.name
             });
-            sector.map(async sub => {
+            sector.subSectors?.map(async sub => {
                 let subType = await SectorSubType.create({
                     name: sub.name,
                     sectorTypeId: sectorType?.id
                 });
             });
+            
         });
         res.json('operation successful');
     }catch(e){

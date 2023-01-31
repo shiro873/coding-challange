@@ -11,7 +11,7 @@ var swaggerUi = require('swagger-ui-express'),
 
 const app = express();
 
-// app.use(cors());
+app.use(cors());
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());

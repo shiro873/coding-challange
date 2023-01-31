@@ -17,7 +17,7 @@ services:
     environment:
       - DATABASE_HOST=database
     command: "npm run start"
-  admin:
+  web:
     container_name: frontend
     build: ./frontend
     ports:
